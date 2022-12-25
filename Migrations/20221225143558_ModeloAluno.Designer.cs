@@ -11,7 +11,7 @@ using mvc_entity.Servicos;
 namespace mvcentity.Migrations
 {
     [DbContext(typeof(DbContexto))]
-    [Migration("20221225030221_ModeloAluno")]
+    [Migration("20221225143558_ModeloAluno")]
     partial class ModeloAluno
     {
         /// <inheritdoc />
@@ -28,25 +28,31 @@ namespace mvcentity.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Matricula")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(8)
+                        .HasColumnType("varchar")
+                        .HasColumnName("matricula");
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(150)
+                        .HasColumnType("varchar")
+                        .HasColumnName("nome");
 
                     b.Property<string>("Notas")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text")
+                        .HasColumnName("notas");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Alunos");
+                    b.ToTable("tbl_alunos");
                 });
 #pragma warning restore 612, 618
         }

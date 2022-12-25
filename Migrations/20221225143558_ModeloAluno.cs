@@ -11,18 +11,18 @@ namespace mvcentity.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Alunos",
+                name: "tbl_alunos",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Matricula = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Notas = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    nome = table.Column<string>(type: "varchar(150)", maxLength: 150, nullable: false),
+                    matricula = table.Column<string>(type: "varchar(8)", maxLength: 8, nullable: false),
+                    notas = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Alunos", x => x.Id);
+                    table.PrimaryKey("PK_tbl_alunos", x => x.id);
                 });
         }
 
@@ -30,7 +30,7 @@ namespace mvcentity.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Alunos");
+                name: "tbl_alunos");
         }
     }
 }
