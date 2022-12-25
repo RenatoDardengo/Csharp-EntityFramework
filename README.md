@@ -29,7 +29,7 @@ git push -u origin main
  # Comandos para migração
   ``` bash
   dotnet tool install --global dotnet-ef
-  dotnet ef migrations add CarroAdd
+  dotnet ef migrations add ModeloAluno
   dotnet ef database update
   ```
   # Instalação do code Generator
